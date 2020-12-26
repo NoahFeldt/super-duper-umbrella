@@ -16,6 +16,12 @@
     </body>
 
     <script lang="javascript">
-        //document.getElementById("tempText").textContent = Date.now();
+
+        fetch("https://api.openweathermap.org/data/2.5/weather?q=Faaborg&appid=d64024babccfb1cd6ea28c74cde48e49&units=metric")
+        .then(res => res.json())
+        .then((out) => {
+        document.getElementById("tempText").textContent = out["main"]["temp"] + "°";
+        })
+        .catch(err => { throw err });
     </script>
 </html>
